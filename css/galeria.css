@@ -1,0 +1,64 @@
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 0 10px;
+}
+
+#galeria img {
+    width: 100%;
+    padding: 2px;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contenedor-principal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#contenedor-interno{
+    width: fit-content;
+    height: fit-content;
+    border: 2px white solid;
+    padding: 2px;
+    justify-content: center;
+    position: relative;
+}
+
+#img-activa{
+    width: 100%;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+}
+
+#btn-cierra{
+    position: absolute;
+    top: 0%;
+    right: 50%;
+    font-size: 3rem;
+}
+
+#btn-retrocede{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-size: 3rem;
+}
+
+#btn-adelanta{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 3rem;
+}

@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #557B83;
+}
+main{
+    display: flex;
+}
+section {
+    background-color:#E5EFC1;
+    width: 80vw;
+    padding: 2% 5%;
+   
+}
+article {
+    text-align: justify;
+    padding-top: 2%;
+    margin: 2%;
+}
+.provincias{
+    list-style: none;
+    display: flex;
+}
+.provincias li {
+    padding-right: 20px;
+}
+h1{
+    font-size: 4rem;
+}
+h3{
+    padding-bottom: 1rem;
+}
+section ol {
+    padding-bottom: 1rem;
+}
+
+aside  img {
+    display: block;
+}
