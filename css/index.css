@@ -5,14 +5,17 @@
     color: #557B83;
     font-size: 1rem;
 }
+
 header{
     background-color: #A2D5AB ;
 }
+
 /* Navegador */
 nav{
     min-height: 35px;
     
 }
+
 .menu-horizontal{
     list-style: none;
     display: flex;
@@ -27,9 +30,11 @@ nav{
 .menu-horizontal >li:hover {
     background-color: #39AEA9;
 }
+
 .menu-horizontal > li > a:hover{
     color: #E5EFC1;
 }
+
 .menu-vertical{
     position: absolute;
     display: none;
@@ -39,18 +44,22 @@ nav{
     opacity: 0.85;
     z-index: 2;
 }
+
 .menu-horizontal li:hover .menu-vertical{
     display: block;
 }
+
 .menu-vertical li:hover{
     background-color:#557B83;
 }
+
 .menu-vertical li a {
     display: block;
     text-decoration: none;
     color: #E5EFC1;
     padding: 0.75rem 2rem;
 }
+
 /* General de las secciones */
 
 section {
@@ -59,7 +68,6 @@ section {
     position: relative;
     overflow-y: hidden;
 }
- 
 
 .sect-1 video {
     position: absolute;
@@ -70,7 +78,8 @@ section {
     
     width: 100%;
     z-index: -1;
-}   
+}
+
 .cont-1 {
     box-sizing: content-box;
     background-color: #E5EFC1 ;
@@ -89,15 +98,18 @@ section {
     margin-top: 1rem;
     padding: 2rem;
 }
+
 .cont-2{
     display: flex;
     }
 .sect-2::-webkit-scrollbar{
     height:7px;
 }
+
 .sect-2::-webkit-scrollbar-thumb{
     background-color: #557B83;
 }
+
 .reg {
     margin: 2rem;
 }
@@ -108,11 +120,13 @@ section {
     border-radius: 4%;  
     
 }
+
 footer{
     background-color: #A2D5AB;
     height: 15vh;
     position: relative;
 }
+
 footer div {
     position: absolute;
     top: 50%;
@@ -123,6 +137,7 @@ footer div {
 .sect-3{
     overflow-x: hidden;
 }
+
 .sect-3 hr{
     min-height: 8px;
     background-color: #39AEA9;
@@ -146,13 +161,13 @@ footer div {
       transform: translatex(0%);
     }
 
-  }
-
+}
 #barra-2 {
     margin-top: 210px;
     margin-left: 10%;
     animation: desplazamiento2 8s infinite 
 }
+
 @keyframes desplazamiento2 { 
     0% {
       transform: translateX(0%);
@@ -164,18 +179,23 @@ footer div {
       transform: translatex(0%);
     }
 
-  }
+}
+
 .sect-3 p {
     
     position: absolute;
     top: 50%;
     left: 50%;
-
     transform: translateX(-50%) translateY(-50%);
-
-
     min-width: 30%;
     text-align: center;
+}
 
+/* Estilos para pantallas tipo tablet */
+@media screen and (max-width: 768px) {
+}
+
+/* Estilos para pantallas tipo cel */
+@media screen and (max-width: 480px) {
 }
 
