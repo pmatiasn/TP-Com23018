@@ -3,7 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     color: #557B83;
-    font-size: 1rem;
+    font-size: 16px;
+    font-family: 'Ysabeau', sans-serif;
+}
+
+html, body {
+    min-width: 320px;
 }
 
 header{
@@ -13,7 +18,6 @@ header{
 /* Navegador */
 nav{
     min-height: 35px;
-    
 }
 
 .menu-horizontal{
@@ -25,6 +29,8 @@ nav{
     display: block;
     text-decoration: none;
     padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    
 }
 
 .menu-horizontal >li:hover {
@@ -33,13 +39,14 @@ nav{
 
 .menu-horizontal > li > a:hover{
     color: #E5EFC1;
+
 }
 
 .menu-vertical{
     position: absolute;
     display: none;
     list-style: none;
-    width: 184px;
+    width: 200px;
     background-color: #39AEA9;
     opacity: 0.85;
     z-index: 2;
@@ -58,6 +65,7 @@ nav{
     text-decoration: none;
     color: #E5EFC1;
     padding: 0.75rem 2rem;
+    font-size: 1.1rem;
 }
 
 /* General de las secciones */
@@ -73,52 +81,56 @@ section {
     position: absolute;
     top: 50%;
     left: 50%;
-
     transform: translateX(-50%) translateY(-50%);
-    
     width: 100%;
     z-index: -1;
 }
 
 .cont-1 {
     box-sizing: content-box;
+    border-radius: 10%;
     background-color: #E5EFC1 ;
     opacity: 0.85;
     text-align: center;
-    padding: 2rem;
-    
+    padding: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;
-
     transform: translateX(-50%) translateY(-50%);
+}
+
+.img-portada{
+    display: none;
+}
+
+h1{
+    font-size: 4rem; 
+}
+
+#tour {
+    font-size: 1.5rem;
+    padding-top: 2%;
 }
 
 .sect-2{
     margin-top: 1rem;
     padding: 2rem;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .cont-2{
     display: flex;
-    }
-.sect-2::-webkit-scrollbar{
-    height:7px;
-}
-
-.sect-2::-webkit-scrollbar-thumb{
-    background-color: #557B83;
+    justify-content: space-between;
 }
 
 .reg {
-    margin: 2rem;
+    margin: 1%;
 }
 
 .reg img{
-    
-    max-height: 300px;
+    max-height: 200px;
     border-radius: 4%;  
-    
 }
 
 footer{
@@ -143,11 +155,11 @@ footer div {
     background-color: #39AEA9;
     border: #39AEA9;
 }
+
 #barra-1 {
     margin-top: 50px;
     margin-right: 10%;
-    animation: desplazamiento 8s infinite ;
-    /* luego podria ver que tal queda una animation: cambioColor 8s infinite; */
+    animation: desplazamiento 8s infinite;
 }
 
 @keyframes desplazamiento { 
@@ -160,8 +172,8 @@ footer div {
     100% {
       transform: translatex(0%);
     }
-
 }
+
 #barra-2 {
     margin-top: 210px;
     margin-left: 10%;
@@ -172,17 +184,17 @@ footer div {
     0% {
       transform: translateX(0%);
     }
+
     50% {
       transform: translatex(-70%);
     }
+
     100% {
       transform: translatex(0%);
     }
-
 }
 
 .sect-3 p {
-    
     position: absolute;
     top: 50%;
     left: 50%;
@@ -191,11 +203,95 @@ footer div {
     text-align: center;
 }
 
-/* Estilos para pantallas tipo tablet */
-@media screen and (max-width: 768px) {
+/* Estilos para pantallas tipo tablet en vertical */
+@media screen and  (min-width: 320px) and (max-width: 768px) {
+    *{
+        font-size: 14px;
+    }
+
+    video{ 
+        display: none;
+    }
+
+    .img-portada{
+        display: unset;
+        width: 100%;
+    }
+
+    #tour {
+        font-size: 1.2rem;
+        padding-top: 2%;
+    }
+
+    .cont-2{
+        display: flex;
+        /* justify-content: none; */
+        overflow-x: scroll;
+    }
+        
+    .sect-2::-webkit-scrollbar{
+        height:7px;
+    }
+            
+    .sect-2::-webkit-scrollbar-thumb{
+        background-color: #05ccf4;
+    }
+        
+    .reg {
+        margin: 2rem;
+    }
+        
+    .reg img{
+        max-height: 300px;
+        border-radius: 4%; 
+        margin-right: 20%; 
+    }
 }
 
-/* Estilos para pantallas tipo cel */
-@media screen and (max-width: 480px) {
-}
+/* Estilos para pantallas tipo cel en vertical */
+@media screen and (max-width: 320px) {
+    *{
+        font-size: 13px;
+    }
 
+    video{ 
+        display: none;
+    }
+
+    .img-portada{
+        display: unset;
+        width: 100%;
+    }
+
+    .cont-1 {
+        box-sizing: content-box;
+        border-radius: 10%;
+        background-color: transparent;
+        opacity: 1;
+        text-align: center;
+        padding: 1rem;
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    #barra-1 {
+        margin-top: 10px;
+        margin-right: 10%;
+        animation: none;
+    }
+
+    #barra-2{
+        animation: none;
+    }
+
+    #tour {
+        font-size: 1.2rem;
+        padding-top: 2%;
+        }
+
+    .cont-2{
+        display: block;
+    }
+}

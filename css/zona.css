@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     color: #557B83;
+    font-family:'Ysabeau', sans-serif;
 }
 
 main {
@@ -12,13 +13,12 @@ main {
 section {
     background-color: #E5EFC1;
     flex: 1;
-    padding-left: 1rem;
+    padding: 3rem;
 }
 
 article {
     text-align: justify;
     padding-top: 2%;
-    margin: 2%;
 }
 
 .provincias {
@@ -49,8 +49,9 @@ aside {
 }
 
 aside img {
-    width: 50%;
-    height: 100px;
+    align-items: center;
+    width: 90%;
+    max-height: 500px;
     box-sizing: border-box;
 }
 
