@@ -16,8 +16,13 @@ header{
 }
 
 /* Navegador */
-nav{
+.nav_index{
     min-height: 35px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #A2D5AB;
+    z-index: 1000;    
 }
 
 .menu-horizontal{

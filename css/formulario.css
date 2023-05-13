@@ -7,8 +7,9 @@ main {
     background-color:#E5EFC1;
 }
 h1{
-    font-size: 2rem;
+    font-size: 4rem;
     margin: 20px;
+    padding: 2rem;
 }
 
 p {
