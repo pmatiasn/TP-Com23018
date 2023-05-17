@@ -7,9 +7,8 @@ main {
     background-color:#E5EFC1;
 }
 h1{
-    font-size: 4rem;
+    font-size: 2rem;
     margin: 20px;
-    padding: 2rem;
 }
 
 p {
@@ -29,4 +28,10 @@ form input {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+span{
+    color: rgb(110, 9, 9);
+}
+#refres{
+    padding: 1rem;
 }

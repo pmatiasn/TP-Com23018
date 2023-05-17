@@ -43,9 +43,8 @@ section ol {
 }
 
 aside {
-    flex: 0 0 25%;
+    width: 30vw;
     display: flex;
-    flex-wrap: wrap;
 }
 
 aside img {
@@ -56,24 +55,37 @@ aside img {
 }
 
 
-/* Estilos para pantallas pequeñas */
+/* En pantalla mas pequeÃ±as se colocan los elementos en bloque,
+ se aÃ±ade un scroll para la galeria de imÃ¡genes*/
 @media screen and (max-width: 768px) {
     main {
         flex-direction: column;
     }
 
     section {
-        padding: 1rem;
+        padding: 10%;
     }
 
     aside {
-        flex: 0 0 100%;
-        overflow-x: auto;
+        width: 100vw;
         white-space: nowrap;
     }
 
-    aside img {
-        width: 100px;
-        margin-right: 5px;
+
+    #galeria img {
+        width: 30vw;
+        height: 30vh;
+        padding: 1vw;
+    
     }
+    
+    #galeria::-webkit-scrollbar{
+        height: 0.8rem;
+    
+    }
+   
+    #galeria::-webkit-scrollbar-thumb{
+        background-color: #05ccf4;
+    }
+    
 }

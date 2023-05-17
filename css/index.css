@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -7,22 +8,15 @@
     font-family: 'Ysabeau', sans-serif;
 }
 
-html, body {
-    min-width: 320px;
-}
+
 
 header{
     background-color: #A2D5AB ;
 }
 
 /* Navegador */
-.nav_index{
+nav{
     min-height: 35px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #A2D5AB;
-    z-index: 1000;    
 }
 
 .menu-horizontal{
@@ -76,10 +70,11 @@ header{
 /* General de las secciones */
 
 section {
-    width: 100%;
+    width: 100vw;
     min-height: 50vh;
     position: relative;
     overflow-y: hidden;
+    
 }
 
 .sect-1 video {
@@ -89,6 +84,7 @@ section {
     transform: translateX(-50%) translateY(-50%);
     width: 100%;
     z-index: -1;
+    
 }
 
 .cont-1 {
@@ -112,21 +108,13 @@ h1{
     font-size: 4rem; 
 }
 
-#tour {
-    font-size: 1.5rem;
-    padding-top: 2%;
-}
 
-.sect-2{
-    margin-top: 1rem;
-    padding: 2rem;
-    max-width: 100%;
-    overflow-x: hidden;
-}
+/* Seccion 2: imagenes diagramado con flexbox*/
 
 .cont-2{
     display: flex;
-    justify-content: space-between;
+    padding: 2rem;
+    overflow-x: hidden;
 }
 
 .reg {
@@ -134,35 +122,44 @@ h1{
 }
 
 .reg img{
-    max-height: 200px;
-    border-radius: 4%;  
+       border-radius: 4%;  
+       max-height: 40vh;
+       
 }
+
 
 footer{
     background-color: #A2D5AB;
     height: 15vh;
-    position: relative;
-}
-
-footer div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sect-3{
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.sect-3 hr{
+.caja{
+    margin-top: 10vh;
+    padding: 1vh;
+}
+
+.caja hr{
     min-height: 8px;
     background-color: #39AEA9;
     border: #39AEA9;
 }
 
+#tour {
+ padding: 10vh;
+ margin-left: 10vh;
+ margin-right: 10vh;
+}
+
 #barra-1 {
-    margin-top: 50px;
     margin-right: 10%;
     animation: desplazamiento 8s infinite;
 }
@@ -180,7 +177,6 @@ footer div {
 }
 
 #barra-2 {
-    margin-top: 210px;
     margin-left: 10%;
     animation: desplazamiento2 8s infinite 
 }
@@ -199,16 +195,13 @@ footer div {
     }
 }
 
-.sect-3 p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    min-width: 30%;
-    text-align: center;
-}
 
-/* Estilos para pantallas tipo tablet en vertical */
+
+/* Estilos para pantallas tipo tablet en vertical  
+
+Se esconde el video de la portada y se reemplaza por imagen    
+Se genera un scroll a la galeria de imagenes */ 
+
 @media screen and  (min-width: 320px) and (max-width: 768px) {
     *{
         font-size: 14px;
@@ -222,41 +215,37 @@ footer div {
         display: unset;
         width: 100%;
     }
-
-    #tour {
-        font-size: 1.2rem;
-        padding-top: 2%;
-    }
-
     .cont-2{
-        display: flex;
-        /* justify-content: none; */
         overflow-x: scroll;
     }
         
-    .sect-2::-webkit-scrollbar{
+    .cont-2::-webkit-scrollbar{
         height:7px;
     }
             
-    .sect-2::-webkit-scrollbar-thumb{
+    .cont-2::-webkit-scrollbar-thumb{
         background-color: #05ccf4;
     }
-        
-    .reg {
-        margin: 2rem;
-    }
-        
     .reg img{
-        max-height: 300px;
         border-radius: 4%; 
-        margin-right: 20%; 
+        
+        
     }
 }
 
-/* Estilos para pantallas tipo cel en vertical */
+/* Estilos para pantallas: movil en vertical
+se esconde el video y se reemplaza por una imagen
+se elimina fondo del contenedor de h1
+se coloca links a regiones en bloque
+se quita animacion de las barras */
+
 @media screen and (max-width: 320px) {
     *{
-        font-size: 13px;
+        font-size: 2vh;
+    }
+
+    nav{
+        min-height: none;
     }
 
     video{ 
@@ -265,20 +254,14 @@ footer div {
 
     .img-portada{
         display: unset;
-        width: 100%;
+        width: 100vw;
     }
 
     .cont-1 {
-        box-sizing: content-box;
-        border-radius: 10%;
         background-color: transparent;
         opacity: 1;
-        text-align: center;
-        padding: 1rem;
-        position: absolute;
-        top: 15%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
+        top: 20%;
+
     }
 
     #barra-1 {
@@ -297,6 +280,13 @@ footer div {
         }
 
     .cont-2{
-        display: block;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reg img{
+        max-height: 60vh;
+        border-radius: 4%; 
+        
     }
 }

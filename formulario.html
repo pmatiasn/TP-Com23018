@@ -15,35 +15,36 @@
 </head>
 <body>
     <header>
-        <nav class="nav_index" id="idnav"></nav>
+        <nav id="idnav"></nav>
     </header>
     <main>
             <h1>Publique sus novedades</h1>
             <p>Si te encuentras promocionando paquetes turísticos/ excursiones, podes completar el formulario y nosotros te daremos un lugar en nuestro BLOG</p>
-            <form>
+            <form name="formulario" method="get">
                 <label for="nombre-contacto">Nombre de contacto:</label><br>
-                <input type="text" id="nombre-contacto" name="nombre-contacto" required><br>
+                <input type="text" id="nombre" name="nombre"> <span id="valNom"></span><br>
         
                 <label for="nombre-empresa">Nombre de empresa:</label><br>
-                <input type="text" id="nombre-empresa" name="nombre-empresa" required><br>
+                <input type="text" id="empresa" name="empresa"> <span id="valEmp"></span><br>
         
                 <label for="telefono">Teléfono/ Celular:</label><br>
-                <input type="tel" id="codigo-pais" name="codigo-pais" maxlength="2" value="54" size="2" required> -
-                <input type="tel" id="codigo-area" name="codigo-area" maxlength="4" required> -
-                <input type="tel" id="numero-telefono" name="numero-telefono" pattern="\d{8}" maxlength="8" size="8" required><br>
+                <input type="tel" id="codigoPais" name="codigoPais" maxlength="2" value="54" size="2"> -
+                <input type="tel" id="codigoArea" name="codigoArea" maxlength="4"> -
+                <input type="tel" id="telefono" name="telefono" pattern="\d{8}" maxlength="8" size="8"> <span id="valTel"></span><br>
         
         
                 <label for="mail">Correo electrónico:</label><br>
-                <input type="email" id="mail" name="mail" required><br>
+                <input type="email" id="mail" name="mail"> <span id="valMail"></span><br>
         
                 <label for="contrato">¿Qué deseas publicar?</label><br>
+                <input type="radio" id="paquete" name="tipoviaje" value="paquete-turistico">
                 <label for="paquete-turistico" style="display: inline-block; margin-right: 10px;">Paquete turístico</label>
-                <input type="radio" id="paquete-turistico" name="contrato" value="paquete-turistico" required>
+                <input type="radio" id="excursion" name="tipoviaje" value="excursion"> 
                 <label for="excursion" style="display: inline-block; margin-right: 10px;">Excursión</label>
-                <input type="radio" id="excursion" name="contrato" value="excursion" required><br>
+                <span id="valExc"></span><br>
         
                 <label for="provincia">Provincia:</label>
-                <select id="provincia" name="provincia" required>
+                <select id="provincia" name="provincia">
                     <option value="">Seleccione una provincia</option>
                     <option value="Buenos Aires">Buenos Aires</option>
                     <option value="Catamarca">Catamarca</option>
@@ -69,24 +70,30 @@
                     <option value="Santiago del Estero">Santiago del Estero</option>
                     <option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
                     <option value="Tucumán">Tucumán</option>
-                </select>
-                <label for="localidad">Localidad:</label>
-                <input type="text" id="localidad" name="localidad" required><br>
+                </select> <span id="valProv"></span>
+                <label for="localidad">Localidad:</label> 
+                <input type="text" id="localidad" name="localidad"> <span id="valLoc"></span><br>
         
                 <label for="comentarios">Descripción:</label><br>
                 <textarea id="comentarios" name="comentarios" style="width: 400px; height: 100px; max-width: 100%;"></textarea><br>
         
                 <label for="precio">Precio:</label><br>
-                <input type="number" id="precio" name="precio" required><br>
+                <input type="number" id="precio" name="precio"><br>
         
                 <label for="fechas">Fechas:</label><br>
-                <input type="date" id="fecha-inicio" name="fecha-inicio" required> 
-                <input type="date" id="fecha-final" name="fecha-final" required><br>
+                <input type="date" id="fecha-inicio" name="fecha-inicio" > 
+                <input type="date" id="fecha-final" name="fecha-final" ><br>
         
-                <input type="submit" value="Enviar">
+                <input type="submit" id="b1" value="Enviar" onclick="validarEnviar()">
+                
             </form>
+            <div id="refres"> <a href="formulario.html"> Refrescar formulario</a></div>
+
+                
+            
     </main>
     <footer id="idfooter"></footer>
     <script src="js/navfoot.js"></script>
+    <script src="js/validacion.js"></script>
 </body>
 </html>
