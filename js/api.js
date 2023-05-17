@@ -15,6 +15,7 @@ if (region === 'cuyo') {
                   <td>${recurso.name}</td>
                   <td>${recurso.main.temp_max}</td>
                   <td>${recurso.main.temp_min}</td>
+                  <td>${recurso.weather[0].main}</td>
                   </tr>`   
   
                   document.getElementById('tablaRegion').insertAdjacentHTML('beforeend', newCity);
@@ -42,6 +43,7 @@ if (region === 'patagonia') {
                   <td>${recurso.name}</td>
                   <td>${recurso.main.temp_max}</td>
                   <td>${recurso.main.temp_min}</td>
+                  <td>${recurso.weather[0].main}</td>
                   </tr>`   
   
                   document.getElementById('tablaRegion').insertAdjacentHTML('beforeend', newCity);
@@ -69,6 +71,7 @@ if (region === 'litoral') {
                 <td>${recurso.name}</td>
                 <td>${recurso.main.temp_max}</td>
                 <td>${recurso.main.temp_min}</td>
+                <td>${recurso.weather[0].main}</td>
                 </tr>`   
 
                 document.getElementById('tablaRegion').insertAdjacentHTML('beforeend', newCity);
@@ -96,6 +99,7 @@ if (region === 'pampa') {
                  <td>${recurso.name}</td>
                  <td>${recurso.main.temp_max}</td>
                  <td>${recurso.main.temp_min}</td>
+                 <td>${recurso.weather[0].main}</td>
                  </tr>`   
  
                  document.getElementById('tablaRegion').insertAdjacentHTML('beforeend', newCity);
@@ -117,12 +121,15 @@ if (region === 'norte') {
         await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},AR&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric`)
                .then (resp => resp.json())
                .then (recurso => {
+
+                console.log(recurso)
          
                  const newCity = 
                  `<tr>
                  <td>${recurso.name}</td>
                  <td>${recurso.main.temp_max}</td>
                  <td>${recurso.main.temp_min}</td>
+                 <td>${recurso.weather[0].main}</td>
                  </tr>`   
  
                  document.getElementById('tablaRegion').insertAdjacentHTML('beforeend', newCity);
