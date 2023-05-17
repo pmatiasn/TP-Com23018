@@ -3,7 +3,7 @@ console.log(region)
 
 async function apiCall(city) { 
   try {
-  await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},AR&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric`)
+  await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},AR&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric`)
         .then (resp => resp.json())
         .then (recurso => {
           
@@ -13,6 +13,13 @@ async function apiCall(city) {
             weatherIcon = '<i class="fa-solid fa-sun" style="color: #fbf304;"></i>';
           } else if (recurso.weather[0].main === "Clouds") {
             weatherIcon = '<i class="fa-solid fa-cloud" style="color: #0561ff;"></i>'; 
+            
+          } else if (recurso.weather[0].main === "Rain") {
+            weatherIcon = '<i class="fa-solid fa-cloud-rain" style="color: #0561ff;"></i>'; 
+            
+          } else if (recurso.weather[0].main === "Snow") {
+            weatherIcon = '<i class="fa-solid fa-snowflake" style="color: #00babd;"></i>'; 
+            
           } else {
             weatherIcon = recurso.weather[0].main;
           }  
