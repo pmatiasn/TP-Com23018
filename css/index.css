@@ -202,7 +202,7 @@ footer{
 Se esconde el video de la portada y se reemplaza por imagen    
 Se genera un scroll a la galeria de imagenes */ 
 
-@media screen and  (min-width: 301px) and (max-width: 768px) {
+@media screen and  (min-width: 600px) and (max-width: 768px) {
     *{
         font-size: 14px;
     }
@@ -239,7 +239,7 @@ se elimina fondo del contenedor de h1
 se coloca links a regiones en bloque
 se quita animacion de las barras */
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 600px) {
     *{
         font-size: 2vh;
     }
