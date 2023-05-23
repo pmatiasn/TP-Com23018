@@ -247,7 +247,7 @@ se elimina fondo del contenedor de h1
 se coloca links a regiones en bloque
 se quita animacion de las barras */
 
-@media screen and (max-width: 280px) {
+@media screen and (max-width: 350px) {
     *{
         font-size: 11px;
         margin: 0;
