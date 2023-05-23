@@ -1,10 +1,10 @@
 body {
-    background-color:#E5EFC1;
+    background-color:#EEEEEE;
     margin: 0;
 }
 
 main {
-    background-color:#E5EFC1;
+    background-color:#EEEEEE;
 }
 h1{
     font-size: 2rem;
@@ -18,7 +18,7 @@ p {
 form {
     margin: 20px;
     padding: 20px;
-    border: 1px solid #E5EFC1;
+    border: 1px solid #EEEEEE;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
@@ -26,7 +26,7 @@ form {
 form input {
     padding: 5px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #AAD8D3;
     border-radius: 5px;
 }
 
