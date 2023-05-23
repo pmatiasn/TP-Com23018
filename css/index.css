@@ -4,14 +4,12 @@
     padding: 0;
     box-sizing: border-box;
     color: #557B83;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Ysabeau', sans-serif;
 }
 
-
-
 header{
-    background-color: #A2D5AB ;
+    background-color: #393E46;
 }
 
 /* Navegador */
@@ -27,17 +25,17 @@ nav{
 .menu-horizontal > li > a {
     display: block;
     text-decoration: none;
+    text-align: left;
     padding: 0.75rem 2rem;
-    font-size: 1.1rem;
-    
+    color: #EEEEEE;
 }
 
 .menu-horizontal >li:hover {
-    background-color: #39AEA9;
+    background-color: #393E46;
 }
 
 .menu-horizontal > li > a:hover{
-    color: #E5EFC1;
+    color: #EEEEEE;
 
 }
 
@@ -56,41 +54,38 @@ nav{
 }
 
 .menu-vertical li:hover{
-    background-color:#557B83;
+    background-color:#393E46;
 }
 
 .menu-vertical li a {
     display: block;
     text-decoration: none;
-    color: #E5EFC1;
+    color: #EEEEEE;
     padding: 0.75rem 2rem;
-    font-size: 1.1rem;
 }
 
 /* General de las secciones */
 
 section {
-    width: 100vw;
-    min-height: 50vh;
+    
     position: relative;
-    overflow-y: hidden;
+    overflow: hidden;
     
 }
 
 .sect-1 video {
     position: absolute;
+    width: 100vw;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    width: 100%;
     z-index: -1;
-    
 }
 
 .cont-1 {
     box-sizing: content-box;
-    border-radius: 10%;
-    background-color: #E5EFC1 ;
+    border-radius: 4%;
+    background-color: #EEEEEE;
     opacity: 0.85;
     text-align: center;
     padding: 1rem;
@@ -110,15 +105,18 @@ h1{
 
 
 /* Seccion 2: imagenes diagramado con flexbox*/
-
+.sect-2{
+    padding: 6vh;
+}
+    
 .cont-2{
     display: flex;
-    padding: 2rem;
-    overflow-x: hidden;
+    justify-content: center;
+
 }
 
-.reg {
-    margin: 1%;
+.reg{
+    padding: 4vh;
 }
 
 .reg img{
@@ -129,9 +127,10 @@ h1{
 
 
 footer{
-    background-color: #A2D5AB;
+    background-color: #393E46;
     height: 15vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -142,21 +141,28 @@ footer{
     flex-direction: column;
 }
 
-.caja{
-    margin-top: 10vh;
-    padding: 1vh;
+.sect-3 div{
+    margin: 4vh;
 }
 
-.caja hr{
+.cont-3 {
+    position: relative;
+    height: 40vh;
+}
+
+hr{
     min-height: 8px;
-    background-color: #39AEA9;
-    border: #39AEA9;
+    background-color: #00ADB5;
+    border: #00ADB5;
 }
 
 #tour {
- padding: 10vh;
- margin-left: 10vh;
- margin-right: 10vh;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
 }
 
 #barra-1 {
@@ -211,12 +217,14 @@ Se genera un scroll a la galeria de imagenes */
         display: none;
     }
 
+
     .img-portada{
         display: unset;
-        width: 100%;
+        width: 100vw;
     }
     .cont-2{
         overflow-x: scroll;
+        justify-content: left;
     }
         
     .cont-2::-webkit-scrollbar{
@@ -224,12 +232,12 @@ Se genera un scroll a la galeria de imagenes */
     }
             
     .cont-2::-webkit-scrollbar-thumb{
-        background-color: #05ccf4;
+        background-color: #00ADB5;
     }
     .reg img{
-        border-radius: 4%; 
-        
-        
+        border-radius: 4%; }
+    .provincias{
+        flex-direction: column;
     }
 }
 
@@ -241,32 +249,33 @@ se quita animacion de las barras */
 
 @media screen and (max-width: 280px) {
     *{
-        font-size: 2vh;
+        font-size: 11px;
+        margin: 0;
+        padding: 0;
     }
+    video{ 
+        display: none;
+    }
+    .img-portada{
+        display: unset;
+        width: 100vw;
+    }
+    .sect-1 div{
+        height: 30vh;
+    }
+
 
     nav{
         min-height: none;
     }
 
-    video{ 
-        display: none;
-    }
-
-    .img-portada{
-        display: unset;
-        width: 100vw;
-    }
-
     .cont-1 {
         background-color: transparent;
         opacity: 1;
-        top: 20%;
-
+        top: 50%;
     }
 
     #barra-1 {
-        margin-top: 10px;
-        margin-right: 10%;
         animation: none;
     }
 
@@ -276,7 +285,6 @@ se quita animacion de las barras */
 
     #tour {
         font-size: 1.2rem;
-        padding-top: 2%;
         }
 
     .cont-2{
@@ -289,4 +297,5 @@ se quita animacion de las barras */
         border-radius: 4%; 
         
     }
+
 }

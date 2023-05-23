@@ -6,7 +6,6 @@
     border-collapse: collapse;
     width: 100%;
     max-width: 100%;
-    white-space: nowrap;
     background-color: white;
     opacity: 80%;
 }
@@ -17,13 +16,13 @@
 }
 
 .table td {
-    border-right: 1px solid #f8f8f8;
-    font-size: 12px;
+    border-right: 1px solid #AAD8D3;
+    overflow-x: scroll;
 }
 
 .table thead th {
     color: #ffffff;
-    background: #A2D5AB;
+    background: #00ADB5;
 }
 
 

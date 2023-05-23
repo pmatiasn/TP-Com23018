@@ -11,7 +11,7 @@ main {
 }
 
 section {
-    background-color: #E5EFC1;
+    background-color: #EEEEEE;
     flex: 1;
     padding: 3rem;
 }
@@ -69,12 +69,16 @@ aside img {
     aside {
         width: 100vw;
         white-space: nowrap;
+       
+    }
+    #galeria{
+        overflow-x: scroll;
     }
 
 
     #galeria img {
-        width: 30vw;
-        height: 30vh;
+        height: 40vh;
+        width: auto;
         padding: 1vw;
     
     }
@@ -85,7 +89,10 @@ aside img {
     }
    
     #galeria::-webkit-scrollbar-thumb{
-        background-color: #05ccf4;
+        background-color: #00ADB5;
+    }
+    .provincias {
+        flex-direction: column;
     }
     
 }
