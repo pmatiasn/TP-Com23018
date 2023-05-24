@@ -294,9 +294,8 @@ se quita animacion de las barras */
 
     .reg h3{
         justify-content: left;
-        font-size: 12px;
 
-    };
+    }
 
     .reg img{
         max-height: 50vh;
