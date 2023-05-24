@@ -94,5 +94,9 @@ aside img {
     .provincias {
         flex-direction: column;
     }
+    #img-activa{
+        width: 80vw;
+        height: auto;
+    }
     
 }
