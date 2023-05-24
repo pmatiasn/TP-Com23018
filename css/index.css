@@ -1,15 +1,16 @@
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: #557B83;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Ysabeau', sans-serif;
 }
 
+
+
 header{
-    background-color: #393E46;
+    background-color: #393E46 ;
 }
 
 /* Navegador */
@@ -25,13 +26,14 @@ nav{
 .menu-horizontal > li > a {
     display: block;
     text-decoration: none;
-    text-align: left;
     padding: 0.75rem 2rem;
-    color: #EEEEEE;
+    font-size: 1.1rem;
+    color:#EEEEEE;
+    
 }
 
 .menu-horizontal >li:hover {
-    background-color: #393E46;
+    background-color: #00ADB5;
 }
 
 .menu-horizontal > li > a:hover{
@@ -44,7 +46,7 @@ nav{
     display: none;
     list-style: none;
     width: 200px;
-    background-color: #39AEA9;
+    background-color: #393E46;
     opacity: 0.85;
     z-index: 2;
 }
@@ -54,7 +56,7 @@ nav{
 }
 
 .menu-vertical li:hover{
-    background-color:#393E46;
+    background-color:#00ADB5;
 }
 
 .menu-vertical li a {
@@ -62,29 +64,32 @@ nav{
     text-decoration: none;
     color: #EEEEEE;
     padding: 0.75rem 2rem;
+    font-size: 1.1rem;
 }
 
 /* General de las secciones */
 
 section {
-    
+    width: 100vw;
+    min-height: 50vh;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
     
 }
 
 .sect-1 video {
     position: absolute;
-    width: 100vw;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+    width: 100%;
     z-index: -1;
+    
 }
 
 .cont-1 {
     box-sizing: content-box;
-    border-radius: 4%;
+    border-radius: 2%;
     background-color: #EEEEEE;
     opacity: 0.85;
     text-align: center;
@@ -104,19 +109,21 @@ h1{
 }
 
 
-/* Seccion 2: imagenes diagramado con flexbox*/
+
 .sect-2{
-    padding: 6vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
 }
-    
+
 .cont-2{
     display: flex;
     justify-content: center;
-
+    
 }
 
-.reg{
-    padding: 4vh;
+.reg {
+    margin:2vw;
 }
 
 .reg img{
@@ -130,7 +137,6 @@ footer{
     background-color: #393E46;
     height: 15vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -141,23 +147,21 @@ footer{
     flex-direction: column;
 }
 
-.sect-3 div{
-    margin: 4vh;
+.sect-3 div {
+    padding: 2vh;
 }
 
-.cont-3 {
-    position: relative;
-    height: 40vh;
-}
-
-hr{
+.sect-3 hr{
     min-height: 8px;
     background-color: #00ADB5;
     border: #00ADB5;
 }
+.cont-3{
+    position: relative;
+    min-height: 40vh;
+}
 
 #tour {
-    font-size: 1.2rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -208,7 +212,7 @@ hr{
 Se esconde el video de la portada y se reemplaza por imagen    
 Se genera un scroll a la galeria de imagenes */ 
 
-@media screen and  (min-width: 280px) and (max-width: 768px) {
+@media screen and  (min-width: 350px) and (max-width: 768px) {
     *{
         font-size: 14px;
     }
@@ -217,10 +221,9 @@ Se genera un scroll a la galeria de imagenes */
         display: none;
     }
 
-
     .img-portada{
         display: unset;
-        width: 100vw;
+        width: 100%;
     }
     .cont-2{
         overflow-x: scroll;
@@ -235,9 +238,9 @@ Se genera un scroll a la galeria de imagenes */
         background-color: #00ADB5;
     }
     .reg img{
-        border-radius: 4%; }
-    .provincias{
-        flex-direction: column;
+        border-radius: 4%; 
+        
+        
     }
 }
 
@@ -249,33 +252,34 @@ se quita animacion de las barras */
 
 @media screen and (max-width: 350px) {
     *{
-        font-size: 11px;
-        margin: 0;
-        padding: 0;
+        font-size: 10px;
     }
-    video{ 
-        display: none;
-    }
-    .img-portada{
-        display: unset;
-        width: 100vw;
-    }
-    .sect-1 div{
-        height: 30vh;
-    }
-
 
     nav{
         min-height: none;
     }
 
+    video{ 
+        display: none;
+    }
+    .sect-1{
+        min-height: auto;
+    }
+
+    .img-portada{
+        display: unset;
+        width: 100vw;
+    }
+
     .cont-1 {
         background-color: transparent;
         opacity: 1;
-        top: 50%;
+        top: 20%;
+
     }
 
     #barra-1 {
+        
         animation: none;
     }
 
@@ -283,19 +287,20 @@ se quita animacion de las barras */
         animation: none;
     }
 
-    #tour {
-        font-size: 1.2rem;
-        }
-
     .cont-2{
         flex-direction: column;
         align-items: center;
     }
 
+    .reg h3{
+        justify-content: left;
+        font-size: 12px;
+
+    };
+
     .reg img{
-        max-height: 60vh;
+        max-height: 50vh;
         border-radius: 4%; 
         
     }
-
 }
