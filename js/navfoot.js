@@ -24,7 +24,7 @@ if (window.location.href.indexOf("index.html") > -1) {                      // V
             </li>
           </ul>
         </li>
-        <li><a href="formulario.html">Contactanos</a></li>
+        <li><a href="altabaja.html">Altas/ Baja de Pasajes</a></li>
       </ul>
     `;
 } 
@@ -51,7 +51,7 @@ else {
             </li>
           </ul>
         </li>
-        <li><a href="formulario.html">Contactanos</a></li>
+        <li><a href="altabaja.html">Alta/ Baja de pasajes</a></li>
       </ul>
     `;
 }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <h1>Eliminar pasaje</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Destino</th>
+                <th>Cantidad</th>
+                <th align="right">Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="pasaje in pasajes">
+                <td>{{ pasaje.codigo }}</td>
+                <td>{{ pasaje.destino }}</td>
+                <td align="right">{{ pasaje.cantidad }}</td>
+                <td align="right">{{ pasaje.precio }}</td>
+                <td><button @click="eliminar_pasaje(pasaje.codigo)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    pasajes: []
+                }
+            },
+            methods: {
+                obtener_pasajes() {
+                    const URL = "https://mpose.pythonanywhere.com/"
+
+                    fetch(URL + 'pasajes')
+                        .then(response => {
+                            if (response.ok) {
+                                return response.json()
+                            } else {
+                                throw new Error('Error al obtener los pasajes.')
+                            }
+                        })
+                        .then(data => {
+                            this.pasajes = data
+                        })
+                        .catch(error => {
+                            console.log('Error:', error)
+                            alert('Error al obtener los pasajes.')
+                        })
+                },
+                eliminar_pasaje(codigo) {
+                    const URL = "https://mpose.pythonanywhere.com/"
+
+                    fetch(URL + `pasajes/${codigo}`, { method: 'DELETE' })
+                        .then(response => {
+                            if (response.ok) {
+                                // Eliminar el producto de la lista después de eliminarlo en el servidor
+                                this.pasajes = this.pasajes.filter(pasaje => pasaje.codigo !== codigo)
+                                console.log('Pasaje eliminado correctamente.')
+                            }
+                        })
+                        .catch(error => {
+                            console.log('Error:', error)
+                            alert('Error al eliminar el pasaje.')
+                        })
+                }
+            },
+            mounted() {
+                this.obtener_pasajes()
+            }
+        })
+        app.mount('body')
+    </script>
+</body>
+
+</html>
