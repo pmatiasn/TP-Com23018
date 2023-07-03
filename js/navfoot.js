@@ -25,6 +25,7 @@ if (window.location.href.indexOf("index.html") > -1) {                      // V
           </ul>
         </li>
         <li><a href="altabaja.html">Altas/ Baja de Pasajes</a></li>
+        <li><a href="carrito.html">Carrito de compras</a></li>
       </ul>
     `;
 } 
@@ -52,6 +53,7 @@ else {
           </ul>
         </li>
         <li><a href="altabaja.html">Alta/ Baja de pasajes</a></li>
+        <li><a href="carrito.html">Carrito de compras</a></li>
       </ul>
     `;
 }

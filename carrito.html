@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Argentina - Alta/Baja de pasajes</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="imagenes/ico_blog.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,400;0,600;0,700;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- <a href="https://www.flaticon.es/iconos-gratis/viaje" title="viaje iconos">Viaje iconos creados por Freepik - Flaticon</a> -->
+    <script src="https://kit.fontawesome.com/b053160d15.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <header>
+        <nav id="idnav"></nav>
+    </header>
+
+    <main>
+        <div id="app">
+            <h1 style="text-align: center">Carrito de compras</h1>
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Destino</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Carrito</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="pasaje in pasajes" :key="pasaje.codigo">
+                  <td>{{ pasaje.codigo }}</td>
+                  <td>{{ pasaje.destino }}</td>
+                  <td align="right">{{ pasaje.cantidad }}</td>
+                  <td align="right">&nbsp; &nbsp; {{ pasaje.precio }}</td>
+                  <td>
+                    <button @click="agregar_carrito(pasaje)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
+                    <button @click="quitar_carrito(pasaje)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        
+            <div v-if="mostrarCarrito">
+              <h1 style="text-align: center">Pasajes en el carrito:</h1>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Destino</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="item in carrito" :key="item.codigo">
+                    <td>{{ item.codigo }}</td>
+                    <td>{{ item.destino }}</td>
+                    <td align="right">{{ item.cantidad }}</td>
+                    <td align="right">&nbsp; &nbsp; {{ item.precio }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        
+            <div v-if="!mostrarCarrito" class="contenedor-centrado">
+                <button @click="obtenerCarrito" style="text-align: center; vertical-align: middle;">Mostrar carrito</button>
+            </div>              
+
+          <script>
+            //const URL = "http://127.0.0.1:5000/"
+            const URL = "https://mpose.pythonanywhere.com/"
+        
+            const app = Vue.createApp({
+              data() {
+                return {
+                  pasajes: [],
+                  mostrarCarrito: false,
+                  carrito: [],
+                }
+              },
+              created() {
+                this.obtener_pasajes()
+              },
+              methods: {
+                obtener_pasajes() {
+                  fetch(URL + 'pasajes')
+                    .then(response => response.json())
+                    .then(data => {
+                      this.pasajes = data
+                    })
+                    .catch(error => {
+                      console.error(URL + 'pasajes', error)
+                      alert('Error al obtener los pasajes.')
+                    })
+                },
+                agregar_carrito(pasaje) {
+                  fetch(URL + 'carrito', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      codigo: pasaje.codigo,
+                      cantidad: 1, // Agregamos una unidad al carrito
+                    }),
+                  })
+                    .then(response => response.json())
+                    .then(data => {
+                      alert(data.message)
+                    })
+                    .catch(error => {
+                      console.error('Error al agregar el pasaje al carrito:', error)
+                      alert('Error al agregar el pasaje al carrito.')
+                    })
+                },
+                quitar_carrito(pasaje) {
+                  fetch(URL + 'carrito', {
+                    method: 'DELETE',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      codigo: pasaje.codigo,
+                      cantidad: 1, // Restamos una unidad del carrito
+                    }),
+                  })
+                    .then(response => response.json())
+                    .then(data => {
+                      alert(data.message)
+                    })
+                    .catch(error => {
+                      console.error('Error al restar el pasaje del carrito:', error)
+                      alert('Error al restar el pasaje del carrito.')
+                    })
+                },
+                obtenerCarrito() {
+                  fetch(URL + 'carrito')
+                    .then(response => response.json())
+                    .then(data => {
+                      this.carrito = data
+                      this.mostrarCarrito = true
+                    })
+                    .catch(error => {
+                      console.error('Error al obtener el carrito:', error)
+                      alert('Error al obtener el carrito.')
+                    })
+                },
+              },
+            })
+            app.mount('#app')
+          </script>
+    </main>
+
+    <footer id="idfooter"></footer>
+    <script src="js/navfoot.js"></script>
+    <script src="js/validacion.js"></script>
+</body>
+</html>
