@@ -1,0 +1,35 @@
+.table {
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    background-color: #ffffff;
+    opacity: 80%;
+}
+
+.table td, .table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.table td {
+    border-right: 1px solid #AAD8D3;
+}
+
+.table thead th {
+    color: #ffffff;
+    background: #00ADB5;
+}
+
+
+.table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.table tr:nth-child(even) {
+    background: #c83636;
+}

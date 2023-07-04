@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #557B83;
+    font-family:'Ysabeau', sans-serif;
+}
+
+main {
+    display: flex;
+}
+
+section {
+    background-color: #EEEEEE;
+    flex: 1;
+    padding: 3rem;
+}
+
+article {
+    text-align: justify;
+    padding-top: 2%;
+}
+
+.provincias {
+    list-style: none;
+    display: flex;
+}
+
+.provincias li {
+    padding-right: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h3 {
+    padding-bottom: 1rem;
+}
+
+section ol {
+    padding-bottom: 1rem;
+}
+
+aside {
+    width: 30vw;
+    display: flex;
+}
+
+aside img {
+    align-items: center;
+    width: 90%;
+    max-height: 500px;
+    box-sizing: border-box;
+}
+
+
+/* En pantalla mas pequeÃ±as se colocan los elementos en bloque,
+ se aÃ±ade un scroll para la galeria de imÃ¡genes*/
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 10%;
+    }
+
+    aside {
+        width: 100vw;
+        white-space: nowrap;
+       
+    }
+    #galeria{
+        overflow-x: scroll;
+    }
+
+
+    #galeria img {
+        height: 40vh;
+        width: auto;
+        padding: 1vw;
+    
+    }
+    
+    #galeria::-webkit-scrollbar{
+        height: 0.8rem;
+    
+    }
+   
+    #galeria::-webkit-scrollbar-thumb{
+        background-color: #00ADB5;
+    }
+    .provincias {
+        flex-direction: column;
+    }
+    
+}
