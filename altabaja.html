@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Argentina - Alta/Baja de pasajes</title>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <link rel="icon" href="imagenes/ico_blog.ico">
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,400;0,600;0,700;1,700;1,900&display=swap" rel="stylesheet">
 
@@ -18,7 +18,8 @@
         <nav id="idnav"></nav>
     </header>
     <main>
-            <h1 style="text-align: center">Agregar pasajes al inventario</h1>
+            <div class="sec-1">
+            <h1>Agregar pasajes al inventario</h1>
             <form id="formulario">
                 <label for="codigo">Código:</label>
                 <input type="text" id="codigo" name="codigo" required><br>
@@ -34,7 +35,9 @@
             
                 <button type="submit">Agregar Pasajes</button>
             </form>
-            <h1 style="text-align: center">Eliminar pasaje</h1>
+            </div>
+            <div class="sec-2">
+            <h1>Eliminar pasaje</h1>
     <table>
         <thead>
             <tr>
@@ -55,6 +58,10 @@
             </tr>
         </tbody>
     </table>
+        </div>
+        <div class="sec-3">
+            <a href="modifprueba.html" class="boton"> Modificar pasajes ingresados</a>
+        </div>
     
     <script src="https://unpkg.com/vue@next"></script>
     

@@ -7,7 +7,6 @@
     <title>Blog de Argentina - Alta/Baja de pasajes</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/formulario.css">
-    <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" href="imagenes/ico_blog.ico">
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,400;0,600;0,700;1,700;1,900&display=swap" rel="stylesheet">
 
@@ -22,7 +21,7 @@
 
     <main>
         <div id="app">
-            <h1 style="text-align: center">Carrito de compras</h1>
+            <h1 style="text-align: center">Pasajes disponibles</h1>
             <table>
               <thead>
                 <tr>
@@ -40,15 +39,18 @@
                   <td align="right">{{ pasaje.cantidad }}</td>
                   <td align="right">&nbsp; &nbsp; {{ pasaje.precio }}</td>
                   <td>
-                    <button @click="agregar_carrito(pasaje)">&nbsp;&nbsp;<b>+</b>&nbsp;&nbsp;</button>
-                    <button @click="quitar_carrito(pasaje)">&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;</button>
+                    <button @click="agregar_carrito(pasaje)" id="mod">&nbsp;&nbsp;<b> + </b>&nbsp;&nbsp;</button>
+                    <button @click="quitar_carrito(pasaje)"id="mod">&nbsp;&nbsp;<b> - </b>&nbsp;&nbsp;</button>
                   </td>
                 </tr>
               </tbody>
             </table>
-        
+
+            <a href="">Actualizar</a>
+
+                  
             <div v-if="mostrarCarrito">
-              <h1 style="text-align: center">Pasajes en el carrito:</h1>
+              <h1 style="text-align: center">Carrito de compras:</h1>
               <table>
                 <thead>
                   <tr>
@@ -68,9 +70,10 @@
                 </tbody>
               </table>
             </div>
+          
         
             <div v-if="!mostrarCarrito" class="contenedor-centrado">
-                <button @click="obtenerCarrito" style="text-align: center; vertical-align: middle;">Mostrar carrito</button>
+                <button @click="obtenerCarrito" style="text-align: center; vertical-align: middle;">Mostrar carrito <img src="/imagenes/carrito-de-compras.png" alt="Carrito" id="carrito"></button>
             </div>              
 
           <script>
