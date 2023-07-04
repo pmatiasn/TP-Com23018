@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Argentina - Alta/Baja de pasajes</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="icon" href="imagenes/ico_blog.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,400;0,600;0,700;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- <a href="https://www.flaticon.es/iconos-gratis/viaje" title="viaje iconos">Viaje iconos creados por Freepik - Flaticon</a> -->
+    <script src="https://kit.fontawesome.com/b053160d15.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav id="idnav"></nav>
+    </header>
+    <main>
+            <div class="sec-1">
+            <h1>Agregar pasajes al inventario</h1>
+            <form id="formulario">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" required><br>
+            
+                <label for="destino">Destino:</label>
+                <input type="text" id="destino" name="destino" required><br>
+            
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required><br>
+            
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio" required><br>
+            
+                <button type="submit">Agregar Pasajes</button>
+            </form>
+            </div>
+            <div class="sec-2">
+            <h1>Eliminar pasaje</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Destino</th>
+                <th>Cantidad</th>
+                <th align="right">Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="pasaje in pasajes">
+                <td>{{ pasaje.codigo }}</td>
+                <td>{{ pasaje.destino }}</td>
+                <td align="right">{{ pasaje.cantidad }}</td>
+                <td align="right">{{ pasaje.precio }}</td>
+                <td><button @click="eliminar_pasaje(pasaje.codigo)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+        <div class="sec-3">
+            <a href="modifprueba.html" class="boton"> Modificar pasajes ingresados</a>
+        </div>
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    pasajes: []
+                }
+            },
+            methods: {
+                obtener_pasajes() {
+                    const URL = "https://mpose.pythonanywhere.com/"
+
+                    fetch(URL + 'pasajes')
+                        .then(response => {
+                            if (response.ok) {
+                                return response.json()
+                            } else {
+                                throw new Error('Error al obtener los pasajes.')
+                            }
+                        })
+                        .then(data => {
+                            this.pasajes = data
+                        })
+                        .catch(error => {
+                            console.log('Error:', error)
+                            alert('Error al obtener los pasajes.')
+                        })
+                },
+                eliminar_pasaje(codigo) {
+                    const URL = "https://mpose.pythonanywhere.com/"
+
+                    fetch(URL + `pasajes/${codigo}`, { method: 'DELETE' })
+                        .then(response => {
+                            if (response.ok) {
+                                // Eliminar el producto de la lista después de eliminarlo en el servidor
+                                this.pasajes = this.pasajes.filter(pasaje => pasaje.codigo !== codigo)
+                                console.log('Pasaje eliminado correctamente.')
+                            }
+                        })
+                        .catch(error => {
+                            console.log('Error:', error)
+                            alert('Error al eliminar el pasaje.')
+                        })
+                }
+            },
+            mounted() {
+                this.obtener_pasajes()
+            }
+        })
+        app.mount('body')
+
+        const URL = "https://mpose.pythonanywhere.com/"
+                // Capturamos el evento de envío del formulario
+                document.getElementById('formulario').addEventListener('submit', function (event) {
+                    event.preventDefault() // Evitamos que se recargue la página
+        
+                    // Obtenemos los valores del formulario
+                    var codigo = document.getElementById('codigo').value
+                    var destino = document.getElementById('destino').value
+                    var cantidad = document.getElementById('cantidad').value
+                    var precio = document.getElementById('precio').value
+        
+                    // Creamos un objeto con los datos del producto
+                    var pasaje = {
+                        codigo: codigo,
+                        destino: destino,
+                        cantidad: cantidad,
+                        precio: precio
+                    }
+                    console.log(pasaje)
+                    // Realizamos la solicitud POST al servidor
+                    fetch(URL + 'pasajes', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(pasaje)
+                    })
+                        .then(function (response) {
+                            if (response.ok) {
+                                return response.json() // Parseamos la respuesta JSON
+                            } else {
+                                throw new Error('Error al agregar el pasaje.')
+                            }
+                        })
+                        .then(function (data) {
+                            alert('Pasaje agregado correctamente.')
+                            document.getElementById('codigo').value = ""
+                            document.getElementById('destino').value = ""
+                            document.getElementById('cantidad').value = ""
+                            document.getElementById('precio').value = ""
+                        })
+                        .catch(function (error) {
+                            console.log('Error:', error)
+                            alert('Error al agregar el pasaje.')
+                        })
+                })
+    </script>
+                 
+    </main>
+    <footer id="idfooter"></footer>
+    <script src="js/navfoot.js"></script>
+    <script src="js/validacion.js"></script>
+</body>
+</html>

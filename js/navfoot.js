@@ -24,9 +24,12 @@ if (window.location.href.indexOf("index.html") > -1) {                      // V
             </li>
           </ul>
         </li>
-        <li><a href="altabaja.html">Altas/ Baja de Pasajes</a></li>
-        <li><a href="carrito.html">Carrito de compras</a></li>
+        <li><a href="carrito.html">Compra tu Pasaje</a></li>
       </ul>
+      
+      <div class="menu-derecha">
+      <a href="altabaja.html"> Empresas: Alta/baja de pasajes. <img src="/imagenes/iniciar-sesion.png" alt=""></a>
+    </div>
     `;
 } 
 else {
@@ -52,9 +55,11 @@ else {
             </li>
           </ul>
         </li>
-        <li><a href="altabaja.html">Alta/ Baja de pasajes</a></li>
-        <li><a href="carrito.html">Carrito de compras</a></li>
+        <li><a href="carrito.html">Compra tu Pasaje</a></li>
       </ul>
+      <div class="menu-derecha">
+      <a href="altabaja.html"> Empresas: Alta/baja de pasajes.  <img src="/imagenes/iniciar-sesion.png" alt="Empresas: Alta/baja de pasajes:"></a>
+    </div>
     `;
 }
 
