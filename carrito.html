@@ -46,9 +46,7 @@
               </tbody>
             </table>
 
-            <a href="">Actualizar</a>
-
-                  
+                 
             <div v-if="mostrarCarrito">
               <h1 style="text-align: center">Carrito de compras:</h1>
               <table>
@@ -71,25 +69,23 @@
               </table>
             </div>
           
-        
-            <div v-if="!mostrarCarrito" class="contenedor-centrado">
-                <button @click="obtenerCarrito" style="text-align: center; vertical-align: middle;">Mostrar carrito <img src="/imagenes/carrito-de-compras.png" alt="Carrito" id="carrito"></button>
-            </div>              
+         
 
           <script>
             //const URL = "http://127.0.0.1:5000/"
-            const URL = "https://mpose.pythonanywhere.com/"
+            const URL = "https://mezher120.pythonanywhere.com/"
         
             const app = Vue.createApp({
               data() {
                 return {
                   pasajes: [],
-                  mostrarCarrito: false,
+                  mostrarCarrito: true,
                   carrito: [],
                 }
               },
               created() {
                 this.obtener_pasajes()
+                this.obtenerCarrito()
               },
               methods: {
                 obtener_pasajes() {
@@ -117,6 +113,7 @@
                     .then(response => response.json())
                     .then(data => {
                       alert(data.message)
+                      window.location.reload()
                     })
                     .catch(error => {
                       console.error('Error al agregar el pasaje al carrito:', error)
@@ -137,6 +134,7 @@
                     .then(response => response.json())
                     .then(data => {
                       alert(data.message)
+                      window.location.reload()
                     })
                     .catch(error => {
                       console.error('Error al restar el pasaje del carrito:', error)
@@ -158,6 +156,7 @@
               },
             })
             app.mount('#app')
+
           </script>
     </main>
 

@@ -74,7 +74,7 @@
             },
             methods: {
                 obtener_pasajes() {
-                    const URL = "https://mpose.pythonanywhere.com/"
+                    const URL = "https://mezher120.pythonanywhere.com/"
 
                     fetch(URL + 'pasajes')
                         .then(response => {
@@ -93,7 +93,7 @@
                         })
                 },
                 eliminar_pasaje(codigo) {
-                    const URL = "https://mpose.pythonanywhere.com/"
+                    const URL = "https://mezher120.pythonanywhere.com/"
 
                     fetch(URL + `pasajes/${codigo}`, { method: 'DELETE' })
                         .then(response => {
@@ -115,7 +115,7 @@
         })
         app.mount('body')
 
-        const URL = "https://mpose.pythonanywhere.com/"
+        const URL = "https://mezher120.pythonanywhere.com/"
                 // Capturamos el evento de envío del formulario
                 document.getElementById('formulario').addEventListener('submit', function (event) {
                     event.preventDefault() // Evitamos que se recargue la página
