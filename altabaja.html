@@ -18,14 +18,40 @@
         <nav id="idnav"></nav>
     </header>
     <main>
-            <div class="sec-1">
+            <div class="div-prin">
             <h1>Agregar pasajes al inventario</h1>
             <form id="formulario">
                 <label for="codigo">Código:</label>
                 <input type="text" id="codigo" name="codigo" required><br>
             
                 <label for="destino">Destino:</label>
-                <input type="text" id="destino" name="destino" required><br>
+                    <select id="destino" name="destino">
+                    <option value="">Seleccione una provincia</option>
+                    <option value="Buenos Aires">Buenos Aires</option>
+                    <option value="Catamarca">Catamarca</option>
+                    <option value="Chaco">Chaco</option>
+                    <option value="Chubut">Chubut</option>
+                    <option value="Ciudad de Buenos Aires">Ciudad de Buenos Aires</option>
+                    <option value="Córdoba">Córdoba</option>
+                    <option value="Corrientes">Corrientes</option>
+                    <option value="Entre Ríos">Entre Ríos</option>
+                    <option value="Formosa">Formosa</option>
+                    <option value="Jujuy">Jujuy</option>
+                    <option value="La Pampa">La Pampa</option>
+                    <option value="La Rioja">La Rioja</option>
+                    <option value="Mendoza">Mendoza</option>
+                    <option value="Misiones">Misiones</option>
+                    <option value="Neuquén">Neuquén</option>
+                    <option value="Río Negro">Río Negro</option>
+                    <option value="Salta">Salta</option>
+                    <option value="San Juan">San Juan</option>
+                    <option value="San Luis">San Luis</option>
+                    <option value="Santa Cruz">Santa Cruz</option>
+                    <option value="Santa Fe">Santa Fe</option>
+                    <option value="Santiago del Estero">Santiago del Estero</option>
+                    <option value="Tierra del Fuego, Antártida e Islas del Atlántico Sur">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+                    <option value="Tucumán">Tucumán</option>
+                </select><br>
             
                 <label for="cantidad">Cantidad:</label>
                 <input type="number" id="cantidad" name="cantidad" required><br>
@@ -36,7 +62,7 @@
                 <button type="submit">Agregar Pasajes</button>
             </form>
             </div>
-            <div class="sec-2">
+            <div class="div-prin">
             <h1>Eliminar pasaje</h1>
     <table>
         <thead>
@@ -57,11 +83,12 @@
                 <td><button @click="eliminar_pasaje(pasaje.codigo)">Eliminar</button></td>
             </tr>
         </tbody>
-    </table>
-        </div>
-        <div class="sec-3">
-            <a href="modifprueba.html" class="boton"> Modificar pasajes ingresados</a>
-        </div>
+        </table>
+            <div class="elim" id="elim1" > <span style="display:none"> Se elimino el pasaje correctamente</span> </div>
+            <div> <a href="modifprueba.html" class="boton"> Modificar pasajes ingresados</a></div>
+    
+    </div>
+       
     
     <script src="https://unpkg.com/vue@next"></script>
     
@@ -74,7 +101,7 @@
             },
             methods: {
                 obtener_pasajes() {
-                    const URL = "https://mezher120.pythonanywhere.com/"
+                    const URL = "https://mezher120.pythonanywhere.com/";
 
                     fetch(URL + 'pasajes')
                         .then(response => {
@@ -93,14 +120,14 @@
                         })
                 },
                 eliminar_pasaje(codigo) {
-                    const URL = "https://mezher120.pythonanywhere.com/"
+                    const URL =  "https://mezher120.pythonanywhere.com/";
 
                     fetch(URL + `pasajes/${codigo}`, { method: 'DELETE' })
                         .then(response => {
                             if (response.ok) {
                                 // Eliminar el producto de la lista después de eliminarlo en el servidor
                                 this.pasajes = this.pasajes.filter(pasaje => pasaje.codigo !== codigo)
-                                console.log('Pasaje eliminado correctamente.')
+                                document.getElementById("elim1").innerHTML = `<span style="display:auto"> Se elimino el pasaje correctamente</span>`
                             }
                         })
                         .catch(error => {
@@ -115,7 +142,7 @@
         })
         app.mount('body')
 
-        const URL = "https://mezher120.pythonanywhere.com/"
+        const URL = "https://mezher120.pythonanywhere.com/";
                 // Capturamos el evento de envío del formulario
                 document.getElementById('formulario').addEventListener('submit', function (event) {
                     event.preventDefault() // Evitamos que se recargue la página
@@ -155,6 +182,7 @@
                             document.getElementById('destino').value = ""
                             document.getElementById('cantidad').value = ""
                             document.getElementById('precio').value = ""
+                            window.location.reload()
                         })
                         .catch(function (error) {
                             console.log('Error:', error)

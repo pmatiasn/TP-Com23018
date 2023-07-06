@@ -18,14 +18,14 @@
         <nav id="idnav"></nav>
     </header>
     <main>
+<div class="div-prin">
+    <h1>Modificar Pasajes</h1>
 
-<h1>Modificar Productos del Inventario</h1>
-<h3>Codo a Codo 2023</h3>
-<form id="formulario">
+    <form id="formulario">
     <label for="codigo">Código:</label>
     <input type="text" id="codigo" name="codigo" required><br>
-    <button type="submit">Modificar Producto</button> 
-</form>
+    <button type="submit">Modificar</button> 
+    </form>
 
     <div id="datosProducto" style="display: none;">
     <h2>Datos del Producto</h2>
@@ -45,7 +45,7 @@
 </div>
 
 <script>
-    const URL = "https://mpose.pythonanywhere.com/";
+    const URL =  "https://mezher120.pythonanywhere.com/";
 
     // Capturamos el evento de envío del formulario para mostrar los datos del producto
     document.getElementById('formulario').addEventListener('submit', function (event) {

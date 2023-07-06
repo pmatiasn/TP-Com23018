@@ -18,7 +18,7 @@ p {
     margin: 20px;
 }
 
-main div {
+.div-prin {
     margin: 30px;
     padding: 20px;
     padding-right: 40px;
@@ -34,6 +34,13 @@ form input {
     border: 1px solid #557B83;
     border-radius: 5px;
     
+}
+form select{
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    border: 1px solid #557B83;
+    border-radius: 5px;
 }
 
 form input:hover{
@@ -71,4 +78,24 @@ button {
 #mod{
     
     background-color: #EEEEEE;
+}
+
+table{
+    margin-bottom: 20px;
+}
+
+table th {
+    border-right: 1px solid #AAD8D3;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table td {
+    border-right: 1px solid #AAD8D3;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+.elim {
+    margin: 5px;
 }
